@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "dotenv"
+Dotenv.load
+require File.expand_path("../../lib/twitterise", __FILE__)
+
+Twitterise.new.call

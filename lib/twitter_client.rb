@@ -10,11 +10,15 @@ class TwitterClient
     end
   end
 
-  def following_ids(user_id = nil)
+  # Returns an array of numeric IDs
+  # If not user_id is specified, refers to the implicit authenticated user.
+  def following(user_id = nil)
     client.friend_ids(user_id).to_a
   end
 
-  def follower_ids(user_id = nil)
+  # Returns an array of numeric IDs
+  # If not user_id is specified, refers to the implicit authenticated user.
+  def followers(user_id = nil)
     client.follower_ids(user_id).to_a
   end
 

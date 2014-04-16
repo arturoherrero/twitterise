@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require File.expand_path("../../persistence/sqlite_adaptor", __FILE__)
+
+SQLiteAdaptor.create_datablase
