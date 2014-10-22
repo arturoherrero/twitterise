@@ -13,7 +13,7 @@ class Repository
   end
 
   def following_after(days)
-    following_table.where("created_at <= ?", Date.today - days).all.map do |row|
+    following_table.where("created_at = ?", Date.today - days).all.map do |row|
       row[:user_id]
     end
   end
