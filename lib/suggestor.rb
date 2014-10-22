@@ -17,7 +17,7 @@ class Suggestor
   attr_reader :twitter, :repository
 
   def suggestions
-    following_now.sample(5).inject([]) { |candidates, user|
+    following_now.sample(4).inject([]) { |candidates, user|
       candidates << twitter.followers(user)
     }.flatten.uniq
   end
