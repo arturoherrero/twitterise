@@ -2,9 +2,10 @@
 
 Two objectives:
 
-1. Have a new and diverse timeline over the time. We always follow people
-similar to us, let's start with new ideas of different people. By default
-Twitterise follows new 4 people during 5 days.
+1. Have a **new and diverse timeline over the time**. We always follow people
+similar to us, let's start with new ideas from different people. By default
+Twitterise follows 5 new people for 5 days. These numbers are not completely
+random because we need to deal with the [Twitter API rate limits][1].
 
 2. Increase the number of followers is a by product but following people maybe
 they will follow you back.
@@ -15,7 +16,7 @@ they will follow you back.
     $ git clone git@github.com:arturoherrero/twitterise.git
     $ bundle install
 
-You need to create a new [Twitter App][1] to work with the Twitter API. Also
+We need to create a new [Twitter App][2] to work with the Twitter API. Also
 it's necessary to create a `.env` file with the environment variables needed by
 the Twitter client.
 
@@ -27,7 +28,7 @@ the Twitter client.
 
 ## Usage
 
-Setup the database. Using SQLite all the information is self-contained in the
+Setup the SQLite database, all the information is self-contained in the
 Twitterise directory.
 
     $ bin/setup
@@ -44,4 +45,5 @@ To achieve this, insert a new line in crontab.
     0 10 * * * bin/twitterise
 
 
-[1]: https://apps.twitter.com/
+[1]: https://dev.twitter.com/rest/public/rate-limiting
+[2]: https://apps.twitter.com/
