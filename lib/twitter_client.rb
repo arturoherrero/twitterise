@@ -15,28 +15,44 @@ class TwitterClient
   # Returns an array of numeric IDs
   # If not user_id is specified, refers to the implicit authenticated user.
   def following(user_id = nil)
-    logger.info "Get following of #{user_id || 'me'}"
-    client.friend_ids(user_id).to_a
+    twitter_request do
+      logger.info "Get following of #{user_id || 'me'}"
+      client.friend_ids(user_id).to_a
+    end
   end
 
   # Returns an array of numeric IDs
   # If not user_id is specified, refers to the implicit authenticated user.
   def followers(user_id = nil)
-    logger.info "Get followers of #{user_id || 'me'}"
-    client.follower_ids(user_id).to_a
+    twitter_request do
+      logger.info "Get followers of #{user_id || 'me'}"
+      client.follower_ids(user_id).to_a
+    end
   end
 
   def follow(user_id)
-    logger.info "Follow #{user_id}"
-    client.follow(user_id)
+    twitter_request do
+      logger.info "Follow #{user_id}"
+      client.follow(user_id)
+    end
   end
 
   def unfollow(user_id)
-    logger.info "Unfollow #{user_id}"
-    client.unfollow(user_id)
+    twitter_request do
+      logger.info "Unfollow #{user_id}"
+      client.unfollow(user_id)
+    end
   end
 
   private
 
   attr_reader :logger, :client
+
+  def twitter_request(&block)
+    block.call
+  rescue Twitter::Error::TooManyRequests => error
+    logger.error error
+    logger.error "Limit: #{error.rate_limit.limit}"
+    logger.error "Remaining: #{error.rate_limit.remaining}"
+  end
 end
