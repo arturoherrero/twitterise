@@ -17,7 +17,7 @@ class TwitterClient
   def following(user_id = nil)
     twitter_request do
       logger.info "Get following of #{user_id || 'me'}"
-      client.friend_ids(user_id, :count => 500).to_a
+      client.friend_ids(user_id, :count => 200).to_a
     end
   end
 
@@ -26,7 +26,7 @@ class TwitterClient
   def followers(user_id = nil)
     twitter_request do
       logger.info "Get followers of #{user_id || 'me'}"
-      client.follower_ids(user_id, :count => 500).to_a
+      client.follower_ids(user_id, :count => 200).to_a
     end
   end
 
@@ -51,8 +51,10 @@ class TwitterClient
   def twitter_request(&block)
     block.call
   rescue Twitter::Error::TooManyRequests => error
-    logger.error error
+    logger.error "Rate limit exceeded"
     logger.error "Limit: #{error.rate_limit.limit}"
     logger.error "Remaining: #{error.rate_limit.remaining}"
+    sleep error.rate_limit.reset_in
+    retry
   end
 end
