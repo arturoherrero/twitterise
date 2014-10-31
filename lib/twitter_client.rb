@@ -17,7 +17,7 @@ class TwitterClient
   def following(user_id = nil)
     twitter_request do
       logger.info "Get following of #{user_id || 'me'}"
-      client.friend_ids(user_id).to_a
+      client.friend_ids(user_id, :count => 500).to_a
     end
   end
 
@@ -26,7 +26,7 @@ class TwitterClient
   def followers(user_id = nil)
     twitter_request do
       logger.info "Get followers of #{user_id || 'me'}"
-      client.follower_ids(user_id).to_a
+      client.follower_ids(user_id, :count => 500).to_a
     end
   end
 
