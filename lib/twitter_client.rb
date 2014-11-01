@@ -53,6 +53,6 @@ class TwitterClient
   rescue Twitter::Error::TooManyRequests => error
     logger.error "Rate limit exceeded"
     logger.error "Limit: #{error.rate_limit.limit}"
-    logger.error "Remaining: #{error.rate_limit.remaining}"
+    exit
   end
 end
