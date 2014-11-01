@@ -8,12 +8,14 @@ class Repository
   def save_following(user_id)
     following_table.insert(
       :user_id    => user_id,
-      :created_at => Date.today
+      :created_at => Time.now
     )
   end
 
   def following_after(days)
-    following_table.where("created_at = ?", Date.today - days).all.map do |row|
+    following_table.where(
+      "created_at BETWEEN ? AND ?", Time.at(time_before(days)), Time.at(time_before(days) + 60)
+    ).all.map do |row|
       row[:user_id]
     end
   end
@@ -30,5 +32,9 @@ class Repository
 
   def following_table
     database[:following]
+  end
+
+  def time_before(number_days)
+    Time.now.to_i - 86400 * number_days
   end
 end
