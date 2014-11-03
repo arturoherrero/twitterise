@@ -3,12 +3,14 @@
 Two objectives:
 
 1. Have a **new and diverse timeline over the time**. We always follow people
-similar to us, let's start with new ideas from different people. By default
-Twitterise follows 5 new people for 5 days. These numbers are not completely
-random because we need to deal with the [Twitter API rate limits][1].
+similar to us, let's start with new ideas from different people. **By default
+Twitterise follows 5 new people for 5 days**. These numbers are not completely
+random because we need to deal with the [Twitter API rate limits][1], but
+it can definitely be much more aggressive.
 
-2. Increase the number of followers is a by product but following people maybe
-they will follow you back.
+2. Increase the number of followers is a by product but following people sometimes
+they will follow you back. Again, remember the Twitter following rules and best
+practices or maybe one day you are going to wonder [why can't I follow people?][2]
 
 
 ## Instalation
@@ -16,7 +18,7 @@ they will follow you back.
     $ git clone git@github.com:arturoherrero/twitterise.git
     $ bundle install
 
-We need to create a new [Twitter App][2] to work with the Twitter API. Also
+We need to create a new [Twitter App][3] to work with the Twitter API. Also
 it's necessary to create a `.env` file with the environment variables needed by
 the Twitter client.
 
@@ -38,7 +40,7 @@ Run Twitterise.
     $ bin/twitterise
 
 In order to automate the use of Twitterise is a good idea to run once per day.
-To achieve this, insert a new line in crontab.
+To achieve this, insert a new line in crontab, e.g. every day at 10:00 AM.
 
     $ crontab -e
 
@@ -46,4 +48,5 @@ To achieve this, insert a new line in crontab.
 
 
 [1]: https://dev.twitter.com/rest/public/rate-limiting
-[2]: https://apps.twitter.com/
+[2]: https://support.twitter.com/articles/66885-i-can-t-follow-people-follow-limits
+[3]: https://apps.twitter.com/
