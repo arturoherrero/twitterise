@@ -9,7 +9,7 @@ class Suggestor
   end
 
   def users_to_unfollow(days)
-    following_by_twitterise_after(days) - following_now
+    following_by_twitterise_after(days)
   end
 
   private
