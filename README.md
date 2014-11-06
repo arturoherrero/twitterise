@@ -18,9 +18,9 @@ practices or maybe one day you are going to wonder [why can't I follow people?][
     $ git clone git@github.com:arturoherrero/twitterise.git
     $ bundle install
 
-We need to create a new [Twitter App][3] to work with the Twitter API. Also
-it's necessary to create a `.env` file with the environment variables needed by
-the Twitter client.
+We need to create a new [Twitter App][3] with read and write permissions to work
+with the Twitter API. Also it's necessary to create a `.env` file with the
+environment variables needed by the Twitter client.
 
     TWITTER_CONSUMER_KEY="YOUR_CONSUMER_KEY"
     TWITTER_CONSUMER_SECRET="YOUR_CONSUMER_SECRET"
