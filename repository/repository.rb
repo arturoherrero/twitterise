@@ -26,12 +26,23 @@ class Repository
     end
   end
 
+  def save_number_followers(number)
+    statics_table.insert(
+      :number_followers => number,
+      :created_at       => Time.now
+    )
+  end
+
   private
 
   attr_reader :database
 
   def following_table
     database[:following]
+  end
+
+  def statics_table
+    database[:statics]
   end
 
   def time_before(number_days)
