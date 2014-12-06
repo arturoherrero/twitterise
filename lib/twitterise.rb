@@ -36,7 +36,7 @@ class Twitterise
   end
 
   def save_number_of_followers
-    repository.save_number_followers(twitter_client.followers.size)
+    repository.save_number_followers(twitter_client.user.followers_count)
   end
 
   def number_to_follow
