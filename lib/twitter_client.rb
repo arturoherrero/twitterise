@@ -12,6 +12,15 @@ class TwitterClient
     end
   end
 
+  # Returns extended user information
+  # If not username is specified, refers to the implicit authenticated user.
+  def user(username = nil)
+    twitter_request do
+      logger.info "Get user information of #{username || 'me'}"
+      client.user(username)
+    end
+  end
+
   # Returns an array of numeric IDs
   # If not user_id is specified, refers to the implicit authenticated user.
   def following(user_id = nil)

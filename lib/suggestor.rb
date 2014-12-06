@@ -5,7 +5,7 @@ class Suggestor
   end
 
   def users_to_follow(number)
-    (suggestions - following_now - following_by_twitterise).sample(number)
+    (suggestions - following_now - following_by_twitterise - yourself).sample(number)
   end
 
   def users_to_unfollow(days)
@@ -32,5 +32,9 @@ class Suggestor
 
   def following_by_twitterise
     repository.following
+  end
+
+  def yourself
+    [twitter.user.id]
   end
 end
