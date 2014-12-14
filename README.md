@@ -22,10 +22,10 @@ We need to create a new [Twitter App][3] with read and write permissions to work
 with the Twitter API. Also it's necessary to create a `.env` file with the
 environment variables needed by the Twitter client.
 
-    TWITTER_CONSUMER_KEY="YOUR_CONSUMER_KEY"
-    TWITTER_CONSUMER_SECRET="YOUR_CONSUMER_SECRET"
-    TWITTER_ACCESS_TOKEN="YOUR_ACCESS_TOKEN"
-    TWITTER_ACCESS_SECRET="YOUR_ACCESS_SECRET"
+    export TWITTER_CONSUMER_KEY="YOUR_CONSUMER_KEY"
+    export TWITTER_CONSUMER_SECRET="YOUR_CONSUMER_SECRET"
+    export TWITTER_ACCESS_TOKEN="YOUR_ACCESS_TOKEN"
+    export TWITTER_ACCESS_SECRET="YOUR_ACCESS_SECRET"
 
 
 ## Usage

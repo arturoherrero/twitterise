@@ -40,10 +40,10 @@ class Twitterise
   end
 
   def number_to_follow
-    5
+    (ENV["NUMBER_TO_FOLLOW"] || 5).to_i
   end
 
   def after_days
-    5
+    (ENV["FOLLOW_DURING_DAYS"] || 5).to_f
   end
 end
