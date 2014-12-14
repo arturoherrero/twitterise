@@ -30,8 +30,7 @@ environment variables needed by the Twitter client.
 
 ## Usage
 
-Setup the SQLite database, all the information is self-contained in the
-Twitterise directory.
+Setup the SQLite database, all the information is self-contained under the `db` directory.
 
     $ bin/setup
 
@@ -45,6 +44,20 @@ To achieve this, insert a new line in crontab, e.g. every day at 10:00 AM.
     $ crontab -e
 
     0 10 * * * bin/twitterise
+
+
+## Statics
+
+Twitterise tracks the number of followers.
+
+    $ sqlite3 db/twitterise.db \
+    > "SELECT number_followers, strftime('%Y-%m-%d', created_at) FROM statics;" |
+    > sed 's/|/ /' | sort -u -k2,2
+    1101 2014-12-05
+    1119 2014-12-06
+    1140 2014-12-07
+    1154 2014-12-08
+    1167 2014-12-09
 
 
 [1]: https://dev.twitter.com/rest/public/rate-limiting

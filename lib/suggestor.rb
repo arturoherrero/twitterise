@@ -1,7 +1,7 @@
 class Suggestor
   def initialize(args)
-    @twitter    = args.fetch(:twitter_client)
-    @repository = args.fetch(:repository)
+    @twitter_client = args.fetch(:twitter_client)
+    @repository     = args.fetch(:repository)
   end
 
   def users_to_follow(number)
@@ -14,16 +14,16 @@ class Suggestor
 
   private
 
-  attr_reader :twitter, :repository
+  attr_reader :twitter_client, :repository
 
   def suggestions
     following_now.sample(2).inject([]) { |candidates, user|
-      candidates << twitter.followers(user)
+      candidates << twitter_client.followers(user)
     }.flatten.uniq
   end
 
   def following_now
-    @following_now ||= twitter.following
+    @following_now ||= twitter_client.following
   end
 
   def following_by_twitterise_after(days)
@@ -35,6 +35,6 @@ class Suggestor
   end
 
   def yourself
-    [twitter.user.id]
+    [twitter_client.user.id]
   end
 end
