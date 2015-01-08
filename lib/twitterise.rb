@@ -12,10 +12,16 @@ class Twitterise
     )
   end
 
-  def call
+  def run
     unfollow_old_users
     follow_new_users
     save_number_of_followers
+  end
+
+  def reset
+    suggestor.users_to_reset.each do |user_id|
+      twitter_client.unfollow(user_id)
+    end
   end
 
   private

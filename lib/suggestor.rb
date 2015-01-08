@@ -12,6 +12,10 @@ class Suggestor
     following_by_twitterise_after(days)
   end
 
+  def users_to_reset
+    following_now & following_by_twitterise
+  end
+
   private
 
   attr_reader :twitter_client, :repository

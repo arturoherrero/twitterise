@@ -4,4 +4,4 @@ require "bundler/setup"
 require "dotenv"; Dotenv.load
 require File.expand_path("../../lib/twitterise", __FILE__)
 
-Twitterise.new.run
+Twitterise.new.reset
