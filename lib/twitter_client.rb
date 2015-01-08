@@ -43,6 +43,7 @@ class TwitterClient
     twitter_request do
       logger.info "Follow #{user_id}"
       client.follow(user_id)
+      mute(user_id) if muting
     end
   end
 
@@ -50,6 +51,7 @@ class TwitterClient
     twitter_request do
       logger.info "Unfollow #{user_id}"
       client.unfollow(user_id)
+      unmute(user_id) if muting
     end
   end
 
@@ -63,5 +65,27 @@ class TwitterClient
     logger.error "Rate limit exceeded"
     logger.error "Limit: #{error.rate_limit.limit}"
     exit
+  end
+
+  def mute(user_id)
+    twitter_request do
+      logger.info "Mute #{user_id}"
+      client.mute(user_id)
+    end
+  end
+
+  def unmute(user_id)
+    twitter_request do
+      logger.info "Unmute #{user_id}"
+      client.unmute(user_id)
+    end
+  end
+
+  def muting
+    case ENV["MUTE"] || "false"
+    when /^true$/  then true
+    when /^false$/ then false
+    else raise StandardError, "Error casting string to boolean"
+    end
   end
 end

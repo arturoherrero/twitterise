@@ -12,13 +12,14 @@ it can definitely be much more aggressive.
 they will follow you back. Again, remember the Twitter following rules and best
 practices or maybe one day you are going to wonder [why can't I follow people?][2]
 
+Twitterise never follows the same user twice.
+
 
 ## Instalation
 
-    $ git clone git@github.com:arturoherrero/twitterise.git
     $ bundle install
 
-We need to create a new [Twitter App][3] with read and write permissions to work
+You need to create a new [Twitter App][3] with read and write permissions to work
 with the Twitter API. Also it's necessary to create a `.env` file with the
 environment variables needed by the Twitter client.
 
@@ -28,13 +29,32 @@ environment variables needed by the Twitter client.
     export TWITTER_ACCESS_SECRET="YOUR_ACCESS_SECRET"
 
 
+## Customization
+
+You can customize the behaviour of Twitterise with some environment variables
+that you can add to the `.env` file.
+
+Number of accounts to follow:
+
+    export NUMBER_TO_FOLLOW=10
+
+Number of days to follow an account:
+
+    export FOLLOW_DURING_DAYS=3
+
+Mute the accounts that Twitterise follows:
+
+    export MUTE=true
+
+
 ## Usage
 
-Setup the SQLite database, all the information is self-contained under the `db` directory.
+Setup the SQLite database, all the information is self-contained under the `db`
+directory:
 
     $ bin/setup
 
-Run Twitterise.
+Run Twitterise:
 
     $ bin/twitterise
 
