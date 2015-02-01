@@ -61,9 +61,14 @@ class TwitterClient
 
   def twitter_request(&block)
     block.call
-  rescue Twitter::Error::TooManyRequests => error
-    logger.error "Rate limit exceeded"
-    logger.error "Limit: #{error.rate_limit.limit}"
+  rescue Twitter::Error::Forbidden => e
+    logger.error e.message
+  rescue Twitter::Error::RequestTimeout => e
+    logger.error e.message
+    retry
+  rescue Twitter::Error::TooManyRequests => e
+    logger.error e.message
+    logger.error "Limit: #{e.rate_limit.limit}"
     exit
   end
 
