@@ -20,6 +20,6 @@ class SQLiteAdaptor
   private
 
   def self.database_path
-    File.expand_path("../../db/twitterise.db", __FILE__)
+    File.expand_path("../../../db/twitterise.db", __FILE__)
   end
 end

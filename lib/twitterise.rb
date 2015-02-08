@@ -1,6 +1,6 @@
 require_relative "suggestor"
 require_relative "twitter_client"
-require_relative "../repository/repository"
+require_relative "repository/repository"
 
 class Twitterise
   def initialize
