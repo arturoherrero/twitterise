@@ -10,11 +10,6 @@ class SQLiteAdaptor
       Fixnum :user_id
       Time   :created_at
     end
-
-    self.database.create_table(:statics) do
-      Fixnum :number_followers
-      Time   :created_at
-    end
   end
 
   private

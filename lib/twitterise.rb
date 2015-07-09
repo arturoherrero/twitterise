@@ -15,7 +15,6 @@ class Twitterise
   def run
     unfollow_old_users
     follow_new_users
-    save_number_of_followers
   end
 
   def reset
@@ -39,10 +38,6 @@ class Twitterise
       twitter_client.follow(user_id)
       repository.save_following(user_id)
     end
-  end
-
-  def save_number_of_followers
-    repository.save_number_followers(twitter_client.user.followers_count)
   end
 
   def number_to_follow

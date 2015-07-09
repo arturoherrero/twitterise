@@ -8,11 +8,11 @@ Twitterise follows 5 new people for 5 days**. These numbers are not completely
 random because we need to deal with the [Twitter API rate limits][1], but
 it can definitely be much more aggressive.
 
-2. Increase the number of followers is a by product but following people sometimes
+2. **Increase the number of followers is a by product** but following people sometimes
 they will follow you back. Again, remember the Twitter following rules and best
 practices or maybe one day you are going to wonder [why can't I follow people?][2]
 
-Twitterise never follows the same user twice.
+**Twitterise never follows the same user twice.**
 
 
 ## Instalation
@@ -73,18 +73,14 @@ beginning, no problem:
 
 ## Statics
 
-Twitterise tracks the number of followers.
+You can track the number of followers with [Twitter Ads][4], under the
+Analytics section.
 
-    $ sqlite3 db/twitterise.db \
-    > "SELECT number_followers, strftime('%Y-%m-%d', created_at) FROM statics;" |
-    > sed 's/|/ /' | sort -u -k2,2
-    1101 2014-12-05
-    1119 2014-12-06
-    1140 2014-12-07
-    1154 2014-12-08
-    1167 2014-12-09
+![Twitter Analytics][5]
 
 
 [1]: https://dev.twitter.com/rest/public/rate-limiting
 [2]: https://support.twitter.com/articles/66885-i-can-t-follow-people-follow-limits
 [3]: https://apps.twitter.com/
+[4]: https://ads.twitter.com/
+[5]: /twitter-followers.png
