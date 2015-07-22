@@ -1,3 +1,5 @@
+require "whatlanguage"
+
 class Suggestor
   def initialize(args)
     @twitter_client = args.fetch(:twitter_client)
@@ -5,7 +7,9 @@ class Suggestor
   end
 
   def users_to_follow(number)
-    (suggestions - followers_now - following_now - following_by_twitterise - yourself).sample(number)
+    (suggestions - followers_now - following_now - following_by_twitterise - yourself).sample(60).select { |user_id|
+      valid_suggestion(user_id)
+    }.sample(number)
   end
 
   def users_to_unfollow(days)
@@ -44,5 +48,18 @@ class Suggestor
 
   def yourself
     [twitter_client.user.id]
+  end
+
+  def valid_suggestion(user_id)
+    user = twitter_client.user(user_id)
+    !user.protected? && languages.include?(user.description.language)
+  end
+
+  def languages
+    if ENV["LANGUAGES"]
+      ENV["LANGUAGES"].split(",").map(&:to_sym)
+    else
+      [:english]
+    end
   end
 end

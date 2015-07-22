@@ -46,6 +46,13 @@ Mute the accounts that Twitterise follows:
 
     export MUTE=true
 
+Language of accounts to follow (based on the Twitter description). Default English.
+Available languages: Arabic, Danish, Dutch, English, Farsi, Finnish, French,
+German, Greek, Hebrew, Hungarian, Italian, Korean, Norwegian, Pinyin, Polish,
+Portuguese, Russian, Spanish, Swedish:
+
+    export LANGUAGES=english,spanish
+
 
 ## Usage
 
@@ -73,8 +80,8 @@ beginning, no problem:
 
 ## Statics
 
-You can track the number of followers with [Twitter Ads][4], under the
-Analytics section.
+You can track the number of followers with [Twitter Analytics][4], under the
+Followers section.
 
 ![Twitter Analytics][5]
 

@@ -37,6 +37,7 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
+    whatlanguage (1.0.5)
 
 PLATFORMS
   ruby
@@ -47,6 +48,7 @@ DEPENDENCIES
   sequel
   sqlite3
   twitter
+  whatlanguage
 
 BUNDLED WITH
    1.10.5

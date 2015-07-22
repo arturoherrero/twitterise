@@ -1,9 +1,10 @@
 source "https://rubygems.org"
 
 gem "dotenv"
-gem "twitter"
 gem "sequel"
 gem "sqlite3"
+gem "twitter"
+gem "whatlanguage"
 
 group :test, :development do
   gem "pry"
