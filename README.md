@@ -78,16 +78,6 @@ beginning, no problem:
     $ bin/reset
 
 
-## Statics
-
-You can track the number of followers with [Twitter Analytics][4], under the
-Followers section.
-
-![Twitter Analytics][5]
-
-
 [1]: https://dev.twitter.com/rest/public/rate-limiting
 [2]: https://support.twitter.com/articles/66885-i-can-t-follow-people-follow-limits
 [3]: https://apps.twitter.com/
-[4]: https://ads.twitter.com/
-[5]: /twitter-followers.png
