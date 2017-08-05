@@ -13,7 +13,7 @@ class Repository
   end
 
   def following_after(days)
-    following_table.where(Sequel[:created_at] < Time.at(time_before(days))).map(:user_id)
+    following_table.where(created_at: Time.at(time_before(days))..Time.at(time_before(days) + 300)).map(:user_id)
   end
 
   def following
@@ -29,6 +29,6 @@ class Repository
   end
 
   def time_before(number_days)
-    Time.now.to_i - 86400 * number_days + 300
+    Time.now.to_i - 86400 * number_days
   end
 end
