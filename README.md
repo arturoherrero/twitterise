@@ -78,6 +78,13 @@ beginning, no problem:
     $ bin/reset
 
 
+## Who made this?
+
+This was made by Arturo Herrero under the MIT License. Find me on Twitter
+[@ArturoHerrero][4].
+
+
 [1]: https://dev.twitter.com/rest/public/rate-limiting
 [2]: https://support.twitter.com/articles/66885-i-can-t-follow-people-follow-limits
 [3]: https://apps.twitter.com/
+[4]: https://twitter.com/ArturoHerrero
