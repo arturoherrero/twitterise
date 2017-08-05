@@ -7,8 +7,8 @@ class Repository
 
   def save_following(user_id)
     following_table.insert(
-      :user_id    => user_id,
-      :created_at => Time.now
+      user_id:    user_id,
+      created_at: Time.now,
     )
   end
 

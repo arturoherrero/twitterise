@@ -7,8 +7,8 @@ class Twitterise
     @repository     = Repository.new
     @twitter_client = TwitterClient.new
     @suggestor      = Suggestor.new(
-      :repository     => repository,
-      :twitter_client => twitter_client,
+      repository:     repository,
+      twitter_client: twitter_client,
     )
   end
 
