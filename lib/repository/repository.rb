@@ -14,7 +14,7 @@ class Repository
 
   def following_after(days)
     following_table.where(
-      "created_at BETWEEN ? AND ?", Time.at(time_before(days)), Time.at(time_before(days) + 300)
+      created_at: Time.at(time_before(days))..Time.at(time_before(days) + 300)
     ).all.map do |row|
       row[:user_id]
     end
