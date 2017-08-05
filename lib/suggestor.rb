@@ -1,4 +1,4 @@
-require "whatlanguage"
+require "whatlanguage/string"
 
 class Suggestor
   def initialize(args)
