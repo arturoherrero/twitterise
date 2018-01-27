@@ -1,6 +1,11 @@
 require_relative "../persistence/sqlite_adaptor"
 
 class Repository
+  SECOND = 1
+  MINUTE = 60 * SECOND
+  HOUR = 60 * MINUTE
+  DAY = 24 * HOUR
+
   def initialize(args = {})
     @database = args.fetch(:db) { SQLiteAdaptor.database }
   end
@@ -9,15 +14,21 @@ class Repository
     following_table.insert(
       user_id:    user_id,
       created_at: Time.now,
+      unfollowed: false,
     )
   end
 
   def following_after(days)
-    following_table.where(created_at: Time.at(time_before(days))..Time.at(time_before(days) + 300)).map(:user_id)
+    following_table.where(Sequel[:created_at] < time_before(days)).exclude(:unfollowed)
+    .map(:user_id)
   end
 
   def following
     following_table.map(:user_id)
+  end
+
+  def mark_unfollowed(user_id)
+    following_table.where(user_id: user_id).update(unfollowed: true)
   end
 
   private
@@ -29,6 +40,10 @@ class Repository
   end
 
   def time_before(number_days)
-    Time.now.to_i - 86400 * number_days
+    Time.now - number_days * DAY + last_execution_duration
+  end
+
+  def last_execution_duration
+    5 * MINUTE
   end
 end

@@ -30,6 +30,7 @@ class Twitterise
   def unfollow_old_users
     suggestor.users_to_unfollow(after_days).each do |user_id|
       twitter_client.unfollow(user_id)
+      repository.mark_unfollowed(user_id)
     end
   end
 
