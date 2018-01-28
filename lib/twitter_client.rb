@@ -61,7 +61,7 @@ class TwitterClient
 
   def twitter_request(&block)
     block.call
-  rescue Twitter::Error::Forbidden => e
+  rescue Twitter::Error::Forbidden, Twitter::Error::NotFound => e
     logger.error e.message
   rescue Twitter::Error::RequestTimeout => e
     logger.error e.message
