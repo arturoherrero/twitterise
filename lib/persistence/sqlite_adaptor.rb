@@ -7,8 +7,9 @@ class SQLiteAdaptor
 
   def self.create_datablase
     self.database.create_table(:following) do
-      Fixnum :user_id
-      Time   :created_at
+      Integer    :user_id
+      Time       :created_at
+      FalseClass :unfollowed
     end
   end
 
