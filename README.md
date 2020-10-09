@@ -1,16 +1,12 @@
-# Twitterise
+# Twitterise 2.0
 
-Two objectives:
+The objective of the project is to have a **new and diverse timeline**. We
+always follow people similar to us, let's start with new ideas from different
+people. **By default Twitterise follows 5 new people for 5 days**.
 
-1. Have a **new and diverse timeline over the time**. We always follow people
-similar to us, let's start with new ideas from different people. **By default
-Twitterise follows 5 new people for 5 days**. These numbers are not completely
-random because we need to deal with the [Twitter API rate limits][1], but
-it can definitely be much more aggressive.
-
-2. **Increase the number of followers is a by product** but following people sometimes
-they will follow you back. Again, remember the Twitter following rules and best
-practices or maybe one day you are going to wonder [why can't I follow people?][2]
+These numbers are not completely random because we need to deal with the
+[Twitter API rate limits][1], but it can be much larger. Remember the Twitter
+following rules and best practices, and the [technical follow limits][2].
 
 **Twitterise never follows the same user twice.**
 
@@ -19,8 +15,8 @@ practices or maybe one day you are going to wonder [why can't I follow people?][
 
     $ bundle install
 
-You need to create a new [Twitter App][3] with read and write permissions to work
-with the Twitter API. Also it's necessary to create a `.env` file with the
+You need to create a new [Twitter App][3] with read and write permissions to
+work with the Twitter API. Also it's necessary to create a `.env` file with the
 environment variables needed by the Twitter client.
 
     export TWITTER_CONSUMER_KEY="YOUR_CONSUMER_KEY"
@@ -72,7 +68,7 @@ To achieve this, insert a new line in crontab, e.g. every day at 10:00 AM:
 
     0 10 * * * bin/twitterise
 
-Everything is a messy, you want to enjoy your Twitter account like in the
+Everything is a mess, you want to enjoy your Twitter account like at the
 beginning, no problem:
 
     $ bin/reset
@@ -84,7 +80,7 @@ This was made by Arturo Herrero under the MIT License. Find me on Twitter
 [@ArturoHerrero][4].
 
 
-[1]: https://dev.twitter.com/rest/public/rate-limiting
-[2]: https://support.twitter.com/articles/66885-i-can-t-follow-people-follow-limits
-[3]: https://apps.twitter.com/
+[1]: https://developer.twitter.com/en/docs/rate-limits
+[2]: https://help.twitter.com/en/using-twitter/twitter-follow-limit
+[3]: https://developer.twitter.com/apps
 [4]: https://twitter.com/ArturoHerrero
