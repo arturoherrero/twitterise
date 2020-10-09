@@ -24,6 +24,7 @@ class Suggestor
 
   attr_reader :twitter_client, :repository
 
+  # Take two people you are following and find their followers.
   def suggestions
     following_now.sample(2).inject([]) { |candidates, user|
       candidates << twitter_client.followers(user)

@@ -2,6 +2,6 @@
 
 require "bundler/setup"
 require "dotenv"; Dotenv.load
-require File.expand_path("../../lib/twitterise", __FILE__)
+require File.expand_path("../lib/twitterise", __dir__)
 
 Twitterise.new.reset

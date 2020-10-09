@@ -19,8 +19,7 @@ class Repository
   end
 
   def following_after(days)
-    following_table.where(Sequel[:created_at] < time_before(days)).exclude(:unfollowed)
-    .map(:user_id)
+    following_table.where(Sequel[:created_at] < time_before(days)).exclude(:unfollowed).map(:user_id)
   end
 
   def following
