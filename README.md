@@ -61,12 +61,12 @@ Run Twitterise:
 
     $ bin/twitterise
 
-In order to automate the use of Twitterise is a good idea to run once per day.
-To achieve this, insert a new line in crontab, e.g. every day at 10:00 AM:
+In order to automate the use of Twitterise, it's a good idea to run it once per
+day. To achieve this, insert a new line in crontab, e.g. every day at 10:00 AM:
 
     $ crontab -e
 
-    0 10 * * * bin/twitterise
+    0 10 * * * export BASH_ENV=/path/to/twitterise/.env; /path/to/ruby /path/to/twitterise/bin/twitterise >> /path/to/twitterise/logs/twitterise.log 2>&1
 
 Everything is a mess, you want to enjoy your Twitter account like at the
 beginning, no problem:
