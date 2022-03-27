@@ -63,13 +63,12 @@ class TwitterClient
     block.call
   rescue Twitter::Error::Forbidden, Twitter::Error::NotFound => e
     logger.error e.message
-  rescue Twitter::Error::RequestTimeout => e
-    logger.error e.message
-    retry
   rescue Twitter::Error::TooManyRequests => e
     logger.error e.message
     logger.error "Limit: #{e.rate_limit.limit}"
     exit
+  rescue StandardError => e
+    logger.error e.message
   end
 
   def mute(user_id)
