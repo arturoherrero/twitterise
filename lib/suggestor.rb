@@ -7,7 +7,7 @@ class Suggestor
   end
 
   def users_to_follow(number)
-    (suggestions - followers_now - following_now - following_by_twitterise - yourself).sample(number * 4).select { |user_id|
+    (suggestions - followers_now - following_now - following_by_twitterise - yourself).sample([number * 4, 60].min).select { |user_id|
       valid_suggestion(user_id)
     }.sample(number)
   end
